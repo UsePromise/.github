@@ -1,0 +1,88 @@
+name: Bug report
+description: Report behavior that is broken, misleading, or unreliable.
+title: "[Bug] "
+labels:
+  - "type: bug"
+projects:
+  - "UsePromise/1"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the user impact, not only the technical symptom. Never include credentials or private message content.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Product area
+      options:
+        - iOS
+        - Today
+        - People Inbox
+        - Promises and reminders
+        - Voice capture
+        - Reply assistance
+        - Web
+        - AI and intelligence
+        - Account and authentication
+        - Releases and infrastructure
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Explain the observed behavior and its impact.
+      placeholder: A user tried to... Instead...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: The user should...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Include the smallest reliable sequence, account state, and frequency.
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: App version, device/browser, OS, account state, and production or development.
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Blocks a core journey or risks data/security
+        - Major friction with no reasonable workaround
+        - Degraded behavior with a workaround
+        - Cosmetic or low-frequency problem
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Safe supporting evidence
+      description: Add sanitized logs, screenshots, request IDs, or links. Remove personal content and secrets.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched for an existing issue.
+          required: true
+        - label: I removed credentials and private customer content.
+          required: true

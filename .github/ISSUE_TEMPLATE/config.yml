@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Promise roadmap
+    url: https://github.com/orgs/UsePromise/projects/1
+    about: Review priorities and existing work before opening a new issue.

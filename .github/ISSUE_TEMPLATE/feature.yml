@@ -1,0 +1,73 @@
+name: Feature proposal
+description: Propose a new capability tied to a clear user problem.
+title: "[Feature] "
+labels:
+  - "type: feature"
+projects:
+  - "UsePromise/1"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Start with the person and problem. A good proposal strengthens Promise's wedge: remembering what matters and helping people follow through at the right time.
+  - type: textarea
+    id: user
+    attributes:
+      label: User and situation
+      description: Who needs this, and in what moment?
+      placeholder: When a busy professional...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Unmet need
+      description: Describe the problem independently of a preferred implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What should become simpler, safer, faster, or newly possible?
+    validations:
+      required: true
+  - type: textarea
+    id: differentiation
+    attributes:
+      label: Why Promise?
+      description: Explain how this reinforces the product wedge rather than adding generic capability.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Smallest valuable version
+      description: Define the narrowest end-to-end behavior that delivers the outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable, testable outcomes.
+      placeholder: |
+        - [ ] A user can...
+        - [ ] The experience handles...
+        - [ ] Success is measured by...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Include simpler product, workflow, or no-build options.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched for an existing issue.
+          required: true
+        - label: This proposal describes a user outcome, not only an implementation.
+          required: true

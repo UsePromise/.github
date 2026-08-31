@@ -1,0 +1,54 @@
+name: Experience improvement
+description: Simplify, clarify, or strengthen an existing Promise capability.
+title: "[Improvement] "
+labels:
+  - "type: improvement"
+projects:
+  - "UsePromise/1"
+body:
+  - type: textarea
+    id: current
+    attributes:
+      label: Current experience
+      description: What exists today, and where does it create friction or confusion?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: User observation, persona scenario, analytics, support signal, or UX review finding.
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed simplification
+      description: Explain what should change, disappear, merge, or become clearer.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Success criteria
+      description: Define an observable improvement and any behavior that must remain unchanged.
+      placeholder: |
+        - [ ] Users can...
+        - [ ] Existing behavior remains...
+        - [ ] We will know this worked when...
+    validations:
+      required: true
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risks and edge cases
+      description: Consider privacy, trust, empty states, accessibility, latency, caching, and account isolation.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched for an existing issue.
+          required: true
+        - label: I removed credentials and private customer content.
+          required: true
