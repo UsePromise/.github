@@ -1,5 +1,7 @@
 # Promise agent strategy
 
+For the all-up Promise company operating model—including repository boundaries, governance layers, evolution rules, and the one-human-company philosophy—start with [`OPERATING-SYSTEM.md`](./OPERATING-SYSTEM.md). This document goes deeper on the agent/skill/instruction design.
+
 Promise should use a small number of durable agents backed by reusable skills, with company invariants embedded into repository instructions so they apply without explicit invocation.
 
 The goal is not to create a persona for every task. The goal is to make high-value judgment repeatable while keeping implementation knowledge close to the repositories that own it and keeping Promise operable by one human for as long as practical.
