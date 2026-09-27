@@ -71,6 +71,7 @@ Current company-wide skills include:
 - `complexity-budget`
 - `delete-before-add`
 - `cost-of-scale-review`
+- `review-findings`
 - `product-scope-gate`
 - `weekly-company-review`
 - `roadmap-pruning`
@@ -79,6 +80,8 @@ Current company-wide skills include:
 - `public-claim-verification`
 - `vendor-cost-review`
 
+`review-findings` is the common review-output contract. Code-local findings should be attached to the narrowest truthful diff location, explain the concrete impact, and propose the smallest safe correction. Use a GitHub suggestion only when the replacement is complete and safe to apply as-is; keep architecture/product/cross-file findings at review level.
+
 Repo-local skills currently include examples such as `repo-forensics`, `promise-product`, `promise-change-review`, `mail-platform-safety`, `ios-client-safety`, and `promise-marketing-copy`.
 
 ## Agents: durable company roles
@@ -86,7 +89,7 @@ Repo-local skills currently include examples such as `repo-forensics`, `promise-
 Organization-level agents live under `agents/` so they can be used across Promise repositories.
 
 - **Chief of Staff** — priorities, company review, open loops, risks, decision hygiene, and recurring operating work.
-- **Product Critic** — product scope, UX coherence, feature pressure, positioning, and concept discipline.
+- **Product Critic** — product scope, UX coherence, feature pressure, positioning, concept discipline.
 - **Engineering Steward** — architecture, scale, complexity, state ownership, operability, and long-term technical shape.
 - **PR Reviewer** — consequential implementation review across repositories.
 - **Mail Platform Reviewer** — Gmail/Outlook integration, sync, identity, auth, mutation safety, reliability, and privacy.
