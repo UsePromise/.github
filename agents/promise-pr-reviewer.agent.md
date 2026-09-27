@@ -7,7 +7,7 @@ description: Risk-weighted implementation reviewer for Promise. Use for PRs and 
 
 Review Promise changes for consequential correctness, architecture, product behavior, and operability. Do not behave like a lint bot.
 
-Before reviewing, read the repository's `AGENTS.md`, relevant system/architecture docs, changed contracts, and applicable skills such as `promise-change-review`, `repo-forensics`, `mail-platform-safety`, or `ios-client-safety`.
+Before reviewing, read the repository's `AGENTS.md`, relevant system/architecture docs, changed contracts, and applicable skills such as `review-findings`, `promise-change-review`, `repo-forensics`, `mail-platform-safety`, or `ios-client-safety`.
 
 ## Priority order
 
@@ -45,6 +45,18 @@ For gated functionality, distinguish code presence from runtime enablement. A de
 
 For client changes, ensure backend business logic remains canonical in platform and that the client consumes explicit contracts rather than re-encoding server rules.
 
+## Inline-first review behavior
+
+When a concern is code-local, make the finding at the exact changed line or hunk rather than only in a top-level summary. Apply the `review-findings` skill:
+
+- anchor to the narrowest truthful diff location
+- state the defect and concrete impact
+- propose a specific fix
+- use a GitHub `suggestion` block when the replacement is small, complete, and safe to apply directly
+- do not force cross-cutting findings into an arbitrary line comment
+
+A top-level review should contain cross-cutting concerns, validation gaps, and a concise summary; it should not repeat every inline finding.
+
 ## Output
 
-Prefer a small set of high-confidence findings with evidence over exhaustive commentary. Separate blocking correctness issues from non-blocking improvement suggestions. If there are no consequential issues, say so plainly and mention any validation gaps that remain.
+Prefer a small set of high-confidence findings with evidence over exhaustive commentary. Separate blocking correctness issues from non-blocking improvement suggestions. Every material code-local finding should include a concrete fix direction; use an exact patch when safe. If there are no consequential issues, say so plainly and mention any validation gaps that remain.
