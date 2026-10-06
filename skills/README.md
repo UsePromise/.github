@@ -4,7 +4,11 @@ This repository is the declarative operating system for Promise as a one-human c
 
 ## Placement rule
 
-Put a skill here when it remains useful even if a product repository disappears. Put a skill inside a product repository when it depends on specific files, commands, architecture, runtime behavior, or release mechanics.
+Canonical company skills live in this repository at `.github/skills/<skill-name>/SKILL.md`. Copilot discovers exactly that one-level path in the repository being worked in. It does not inherit skills from the organization `.github` repository into product repositories, and it does not discover `skills/<family>/<skill-name>/`.
+
+Put a procedure here when it remains useful even if a product repository disappears. Put a skill inside a product repository when it depends on specific files, commands, architecture, runtime behavior, or release mechanics.
+
+To load a company skill while working in a product repository, copy its directory to that repository's `.github/skills/<skill-name>/`. Organization agents must read `UsePromise/.github` at `.github/skills/<skill-name>/SKILL.md` when the local copy is absent. Do not assume the skill is already in context.
 
 ## Design rule
 
@@ -20,11 +24,13 @@ Prefer skills over new agents. Add a new agent only when a durable role needs di
 - Scale by removing coordination rather than creating organizational structure.
 - Preserve explicit human approval for consequential external actions unless a deliberate policy says otherwise.
 
-## Current skill families
+## Current skills
 
-- `company/`: cadence, decisions, risks, pruning
-- `product/`: scope and evidence discipline
-- `engineering/`: architecture, complexity, deletion, scale
-- `customer/`: support and customer signal synthesis
-- `trust/`: privacy and public-claim verification
-- `finance/`: vendors, cost, and operational economics
+Families are labels, not directories. Every skill directory is directly under `.github/skills/`.
+
+- Company: `weekly-company-review`, `roadmap-pruning`
+- Product: `product-scope-gate`
+- Engineering: `architecture-change-gate`, `complexity-budget`, `delete-before-add`, `cost-of-scale-review`, `review-findings`
+- Customer: `customer-signal-synthesis`
+- Trust: `privacy-impact-review`, `public-claim-verification`
+- Finance: `vendor-cost-review`

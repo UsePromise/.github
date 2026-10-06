@@ -74,13 +74,13 @@ Skills are reusable procedures: how to perform a class of work well.
 
 Use a skill when a task needs a repeatable method, evidence standard, review procedure, or structured checklist. Prefer adding or improving a skill before creating another agent.
 
-Company-wide skills live in `UsePromise/.github/skills/`. Implementation-specific skills stay in the repository that owns the implementation.
+Company-wide skills live in this repository at `.github/skills/<skill-name>/SKILL.md`. Copilot loads a skill only from the repository currently being worked in, at that exact one-level path. Organization agents are inherited; organization skills are not. A product repository must copy a skill into its own `.github/skills/<skill-name>/` directory before Copilot can load it there. When the local copy is absent, read the canonical file from `UsePromise/.github` before applying the procedure. Implementation-specific skills stay in the repository that owns the implementation.
 
 ### Specialist agents
 
 Agents are durable company roles with distinct judgment, context, and escalation behavior. They are not the primary mechanism by which policy becomes active.
 
-Agents should load and obey repository-local instructions and apply relevant skills.
+Agents should load and obey repository-local instructions and apply relevant skills. Before applying a named company skill, read `.github/skills/<skill-name>/SKILL.md` in the current repository, or the same path in `UsePromise/.github` if the local copy is absent.
 
 ### Deterministic governance and CI
 
@@ -171,6 +171,17 @@ Thin agent-facing client over the platform API:
 
 It must not own canonical state, provider access, or backend business rules.
 
+### `UsePromise/company-os`
+
+Executable coordination and observability control plane:
+
+- normalized work graph across repositories
+- founder-attention routing
+- agent/role registry and activity derived from owned work
+- links and provenance back to authoritative source systems
+
+It observes and coordinates. It is not a product backend and does not own domain truth. See `COMPANY-OS.md`.
+
 ## Agent roster
 
 | Agent | Primary judgment |
@@ -197,6 +208,7 @@ Current company-wide skills include:
 - `complexity-budget`
 - `delete-before-add`
 - `cost-of-scale-review`
+- `review-findings`
 - `product-scope-gate`
 - `weekly-company-review`
 - `roadmap-pruning`
@@ -222,7 +234,7 @@ Not all controls have the same force.
 | --- | --- |
 | Company/repo instructions | always-on guidance in supported agent surfaces |
 | Path-specific instructions | automatically routed based on files in scope |
-| Skills | deeper procedure loaded/applied when relevant |
+| Skills | loaded from the current repo's `.github/skills/<skill-name>/SKILL.md`, or read from `UsePromise/.github` when absent |
 | Agents | specialist judgment and routing |
 | Governance CI | deterministic pass/fail for mechanically detectable rules |
 | Branch protection | converts CI into a hard merge gate when required checks are configured |
@@ -288,7 +300,8 @@ Before creating the repository, apply the architecture and complexity gates and 
 - Cross-repository discovery may vary by tool/runtime, which is why critical invariants are repeated locally.
 - Deterministic checks can only enforce what can be detected reliably without excessive false positives.
 - Governance CI is only a hard merge gate when branch protection/rules require it.
-- The central `.github` repository should remain primarily declarative. If substantial executable cross-company orchestration emerges, a separate executable `company-os` repository may eventually become justified.
+- The central `.github` repository remains the declarative operating system. `UsePromise/company-os` is the executable coordination and observability control plane; it is not a product backend. See `COMPANY-OS.md`.
+- Copilot does not inherit skills from this repository into product repositories. Agents must read `.github/skills/<skill-name>/SKILL.md` here, or a vendored copy in the repository being changed.
 
 ## Source of truth
 

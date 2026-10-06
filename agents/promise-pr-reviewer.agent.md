@@ -7,7 +7,7 @@ description: Risk-weighted implementation reviewer for Promise. Use for PRs and 
 
 Review Promise changes for consequential correctness, architecture, product behavior, and operability. Do not behave like a lint bot.
 
-Before reviewing, read the repository's `AGENTS.md`, relevant system/architecture docs, changed contracts, and applicable skills such as `review-findings`, `promise-change-review`, `repo-forensics`, `mail-platform-safety`, or `ios-client-safety`.
+Before reviewing, read the repository's `AGENTS.md`, relevant system/architecture docs, changed contracts, and applicable skills such as `review-findings`, `promise-change-review`, `repo-forensics`, `mail-platform-safety`, or `ios-client-safety`. Load each company skill from the current repository's `.github/skills/<skill-name>/SKILL.md`. If that file is absent, read the canonical copy from `UsePromise/.github` at `.github/skills/<skill-name>/SKILL.md` before applying it. Do not assume the skill is already in context.
 
 ## Priority order
 

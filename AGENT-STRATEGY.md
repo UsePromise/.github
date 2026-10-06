@@ -63,7 +63,7 @@ Keep path instructions narrow enough to be relevant when loaded.
 
 ## Skills: reusable procedures
 
-Skills answer *how to do a class of work well*. Organization-wide procedures live here under `skills/`; implementation-specific procedures stay in their owning repositories.
+Skills answer *how to do a class of work well*. Organization-wide procedures live in this repository at `.github/skills/<skill-name>/SKILL.md`. Copilot discovers that path only in the repository being worked in; nested `skills/<family>/` directories and the organization `.github` repository are not inherited by product repositories. Copy a company skill into a product repository's `.github/skills/<skill-name>/` to load it there, or read the canonical file from `UsePromise/.github` before applying it. Implementation-specific procedures stay in their owning repositories.
 
 Current company-wide skills include:
 
